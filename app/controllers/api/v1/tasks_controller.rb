@@ -1,6 +1,14 @@
 class Api::V1::TasksController < ApplicationController
     def index
-        @tasks = Tasks.all
+        @tasks = Task.all
+        if @tasks
+            render json: @tasks
+        else
+            render json: {
+                status: 500,
+                errors: ['no tasks found']
+            }
+        end
     end
 
     def new 
@@ -13,7 +21,36 @@ class Api::V1::TasksController < ApplicationController
 
     def create
         @task = Task.new(task_params)
-        @task.save
+        if @task.save
+            render json: {
+                status: 200,
+                message: :created,
+                task: @task
+            }
+        else
+            render json: {
+                status: 500,
+                errors: @task.errors.full_messages
+            }
+    end
+
+    def update
+        if @task.update(task_params)
+            render json: {
+                status: 200,
+                message: :updated,
+                task: @task.to_json()
+            }
+        else
+            render json: {
+                status: 500,
+                errors: @task.errors.full_messages
+            }
+        end
+    end
+
+    def destroy
+        @task.destroy
     end
 
     private
