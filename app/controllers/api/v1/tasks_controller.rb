@@ -2,11 +2,15 @@ class Api::V1::TasksController < ApplicationController
     def index
         @tasks = Task.all
         if @tasks
-            render json: @tasks.to_json()
+            render json: {
+                status: 200,
+                message: "Knobhad",
+                tasks: @tasks
+            }
         else
             render json: {
                 status: 500,
-                errors: ['no tasks found']
+                errors: @task.errors.full_messages
             }
         end
     end
