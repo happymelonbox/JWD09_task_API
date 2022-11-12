@@ -2,7 +2,7 @@ class Api::V1::TasksController < ApplicationController
     def index
         @tasks = Task.all
         if @tasks
-            render json: @tasks
+            render json: @tasks.to_json()
         else
             render json: {
                 status: 500,
@@ -57,7 +57,7 @@ class Api::V1::TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:title, :description, :assigned_to, :date, :to_do)
+        params.require(:task).permit(:title, :description, :assigned_to, :date, :status)
     end
             
 end
