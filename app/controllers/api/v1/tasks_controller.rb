@@ -2,10 +2,7 @@ class Api::V1::TasksController < ApplicationController
     def index
         @tasks = Task.all
         if @tasks
-            render json: {
-                status: 200,
-                tasks: @tasks
-            }
+            render json: @tasks.to_json()
         else
             render json: {
                 status: 500,
