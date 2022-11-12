@@ -32,6 +32,7 @@ class Api::V1::TasksController < ApplicationController
                 status: 500,
                 errors: @task.errors.full_messages
             }
+        end
     end
 
     def update
