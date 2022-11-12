@@ -4,7 +4,6 @@ class Api::V1::TasksController < ApplicationController
         if @tasks
             render json: {
                 status: 200,
-                message: "Knobhad",
                 tasks: @tasks
             }
         else
