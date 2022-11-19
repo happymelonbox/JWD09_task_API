@@ -11,7 +11,8 @@ Task.create(
     description: "Let's go for a sick as walk and pick up some feral as rubbish",
     assigned_to: "Christopher",
     date: "13/11/2022",
-    status: "to do"
+    status: "done",
+    pod_name: "Testing Pod"
 )
 
 Task.create(
@@ -19,7 +20,8 @@ Task.create(
     description: "Catch the homeless mouse that keeps stealing my lipstick",
     assigned_to: "Joelline",
     date: "09/12/2022",
-    status: "to do"
+    status: "to do",
+    pod_name: "Testing Pod"
 )
 
 Task.create(
@@ -27,7 +29,8 @@ Task.create(
     description: "Slice ten onions for the bunnings sausage sizzle",
     assigned_to: "Henryr",
     date: "11/11/2022",
-    status: "to do"
+    status: "to do",
+    pod_name: "Testing Pod"
 )
 
 Task.create(
@@ -35,7 +38,8 @@ Task.create(
     description: "Spready McSpreaderson",
     assigned_to: "Gertrude",
     date: "13/11/2022",
-    status: "to do"
+    status: "to do",
+    pod_name: "Testing Pod"
 )
 
 Task.create(
@@ -43,5 +47,6 @@ Task.create(
     description: "HUGE booger up there dawg, we need to investigate",
     assigned_to: "Jimr",
     date: "13/11/2022",
-    status: "to do"
+    status: "to do",
+    pod_name: "Testing Pod"
 )

@@ -11,41 +11,48 @@ class Api::V1::TasksController < ApplicationController
         end
     end
 
-    def new 
-        @task = Task.new
-    end
-
-    def show
-        @task = Task.find(params[:id])
-    end
-
     def create
-        @task = Task.new(task_params)
-        if @task.save
-            render json: {
-                status: 200,
-                message: :created,
-                task: @task
-            }
+        if task_params[:pod_name] === "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den"
+            @task = Task.new(task_params)
+            if @task.save
+                render json: {
+                    status: 200,
+                    message: :created,
+                    task: @task
+                }
+            else
+                render json: {
+                    status: 500,
+                    errors: @task.errors.full_messages
+                }
+            end
+
         else
             render json: {
                 status: 500,
-                errors: @task.errors.full_messages
+                errors: "Pod name not accepted"
             }
         end
     end
 
     def update
-        if @task.update(task_params)
-            render json: {
-                status: 200,
-                message: :updated,
-                task: @task.to_json()
-            }
+        if task_params[:pod_name] == "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den"
+            if @task.update(task_params)
+                render json: {
+                    status: 200,
+                    message: :updated,
+                    task: @task.to_json()
+                }
+            else
+                render json: {
+                    status: 500,
+                    errors: @task.errors.full_messages
+                }
+            end
         else
             render json: {
                 status: 500,
-                errors: @task.errors.full_messages
+                errors: "Pod name not accepted"
             }
         end
     end
@@ -57,7 +64,7 @@ class Api::V1::TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:title, :description, :assigned_to, :date, :status)
+        params.require(:task).permit(:title, :description, :assigned_to, :date, :status, :pod_name)
     end
-            
+
 end
