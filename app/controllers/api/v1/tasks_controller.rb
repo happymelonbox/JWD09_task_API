@@ -12,7 +12,7 @@ class Api::V1::TasksController < ApplicationController
     end
 
     def create
-        if task_params[:pod_name] === "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den"
+        if task_params[:pod_name] === "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den" || task_params[:pod_name] == "Testing"
             @task = Task.new(task_params)
             if @task.save
                 render json: {
@@ -36,7 +36,7 @@ class Api::V1::TasksController < ApplicationController
     end
 
     def update
-        if task_params[:pod_name] == "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den"
+        if task_params[:pod_name] == "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den" || task_params[:pod_name] == "Testing Pod"
             if @task.update(task_params)
                 render json: {
                     status: 200,
@@ -58,6 +58,7 @@ class Api::V1::TasksController < ApplicationController
     end
 
     def destroy
+        @task = Task.find(params[:id])
         @task.destroy
     end
 
