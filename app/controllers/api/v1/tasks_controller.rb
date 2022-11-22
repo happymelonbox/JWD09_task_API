@@ -37,6 +37,7 @@ class Api::V1::TasksController < ApplicationController
 
     def update
         if task_params[:pod_name] == "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den" || task_params[:pod_name] == "Testing Pod"
+            @task = Task.find(params[:id])
             if @task.update(task_params)
                 render json: {
                     status: 200,

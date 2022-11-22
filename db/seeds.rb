@@ -38,7 +38,7 @@ Task.create(
     description: "Spready McSpreaderson",
     assigned_to: "Gertrude",
     date: "13/11/2022",
-    status: "To Do",
+    status: "Working",
     pod_name: "Testing Pod"
 )
 
@@ -47,6 +47,15 @@ Task.create(
     description: "HUGE booger up there dawg, we need to investigate",
     assigned_to: "Jimr",
     date: "13/11/2022",
-    status: "To Do",
+    status: "In Review",
+    pod_name: "Testing Pod"
+)
+
+Task.create(
+    title: `Take out the "Trash"`, 
+    description: "Whack the guy that owes me that thing from that event",
+    assigned_to: "Ol' Dusty",
+    date: "13/12/2022",
+    status: "In Review",
     pod_name: "Testing Pod"
 )
