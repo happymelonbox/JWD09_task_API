@@ -12,7 +12,7 @@ class Api::V1::TasksController < ApplicationController
     end
 
     def create
-        if task_params[:pod_name] === "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den" || task_params[:pod_name] == "Testing"
+        if task_params[:pod_name] === "Podlet of fire" || task_params[:pod_name] == "Dreamchasers" || task_params[:pod_name] == "Coding Den" || task_params[:pod_name] == "Testing Pod"
             @task = Task.new(task_params)
             if @task.save
                 render json: {
