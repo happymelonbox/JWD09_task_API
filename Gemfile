@@ -61,3 +61,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'haml-rails'
 
+
+gem "rspec_api_documentation", "~> 6.1"
